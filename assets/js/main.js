@@ -74,15 +74,36 @@ $(document).ready(function() {
        // + minutes + "m, " + seconds + "s";  
      
     }, 1000);
-     
+
+
+
+
+    /* ======= RSVP Form (Dependent form field) ============ */
+    $('#cguests').on("change", function(){
+        console.log('Yes');
+        if ($(this).val() == "") {
+            $('.guestinfo-group').slideDown(); //hide
+            console.log('not selected');
+        } else if ($(this).val() == 'No_thanks' ) {
+            $('.guestinfo-group').slideUp(); //hide
+            console.log('No guests');
+        } else if ($(this).val() == 'yes' ) {
+            $('.guestinfo-group').slideDown(); //show
+
+            console.log('Has guests');
+        }
+
+
+    });
+
 
     /* ======= Google Map ======= */
     map = new GMaps({
         div: '#map',
         lat: 25.0412964,
         lng: 121.521172,
-        scrollwheel: true,
-        zoom: 17,
+        scrollwheel:false,
+        zoom: 15
     });
     
     map.addMarker({
@@ -91,11 +112,12 @@ $(document).ready(function() {
         verticalAlign: 'top',
         title: 'Ceremony Location',  
         infoWindow: {
-            content: '<div class="note">婚禮地點</div><h4 class="map-title script">台大庭園會館</h4><div class="address"><span class="region">徐州路2號 （台大醫院國際會議中心）</span><br><span class="postal-code"></span><br><span class="city-name">台北市</span></div>'
+            content: '<div class="note">婚禮地點</div><h4 class="map-title script">"台大庭園會館"</h4><div class="address"><span class="region">"徐州路2號 （台大醫院國際會議中心）"</span><br><span class="postal-code"></span><br><span class="city-name">"台北市"</span></div>'
         }
         
         
     });
+
 
 
     //map.addMarker({
@@ -107,14 +129,15 @@ $(document).ready(function() {
     //    }
     //
     //});
-    
+
+
     /*display marker 1 address on load */
     google.maps.event.trigger(map.markers[0], 'click');
     /*display marker 2 address on load */
     google.maps.event.trigger(map.markers[1], 'click');
-    
-    
-    
+
+    console.log('I love you Da Mao !! >/////<');
+
     
 
     /* ======= Instagram ======= */
@@ -147,7 +170,7 @@ $(document).ready(function() {
     // run our feed!
     feed.run();
 
-    
+
     /* ===== Packery ===== */
     //Ref: http://packery.metafizzy.co/
     //Ref: http://imagesloaded.desandro.com/
@@ -161,49 +184,28 @@ $(document).ready(function() {
             percentPosition: true
         });
     });
-    
-    
-    /* ======= RSVP Form (Dependent form field) ============ */
-    $('#cguests').on("change", function(){
-        
-        if ($(this).val() == "") {
-            $('.guestinfo-group').slideUp(); //hide
-            console.log('not selected');
-        } else if ($(this).val() == 'No Guests' ) {
-            $('.guestinfo-group').slideUp(); //hide
-            console.log('No guests');
-            $('#cguestinfo').val('No Guests'); //Pass data to the field so mailer.php can send the form.
-            
-        } else {
-            $('.guestinfo-group').slideDown(); //show
-            $('#cguestinfo').val(''); //Clear data
-            console.log('Has guests');
-        }
 
-       
-    });
-    
     /* ======= jQuery form validator ======= */ 
-    /* Ref: http://jqueryvalidation.org/documentation/ */   
-    $(".rsvp-form").validate({
-		messages: {
-		    name: {
-    			required: 'Please enter your full name' //You can customise this message
-			},
-			email: {
-				required: 'Please enter your email' //You can customise this message
-			},
-			events: {
-				required: 'Are you attending?' //You can customise this message
-			},
-			guests: {
-				required: 'How many guests?' //You can customise this message
-			},
-			guestinfo: {
-				required: 'Please provide name(s)' //You can customise this message
-			},
-		}
-	});
+	///* Ref: http://jqueryvalidation.org/documentation/ */
+	//$(".rsvp-form").validate({
+	//	messages: {
+	//	    name: {
+    	//		required: 'Please enter your full name' //You can customise this message
+	//		},
+	//		email: {
+	//			required: 'Please enter your email' //You can customise this message
+	//		},
+	//		events: {
+	//			required: 'Are you attending?' //You can customise this message
+	//		},
+	//		guests: {
+	//			required: 'How many guests?' //You can customise this message
+	//		},
+	//		//guestinfo: {
+	//		//	required: 'Please provide name(s)' //You can customise this message
+	//		//},
+	//	}
+	//});
   
 
 });
