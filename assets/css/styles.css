@@ -563,7 +563,8 @@ label {
   margin-bottom: 60px;
 }
 .story-box .content-container {
-  background: rgba(255, 255, 255, 0.85);
+  /*background: rgba(255, 255, 255, 0.85);*/
+  background: #fefefe;
   padding: 30px;
   text-align: left;
   -webkit-border-radius: 10px;
