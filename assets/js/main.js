@@ -134,7 +134,7 @@ $(document).ready(function() {
     /*display marker 1 address on load */
     google.maps.event.trigger(map.markers[0], 'click');
     /*display marker 2 address on load */
-    google.maps.event.trigger(map.markers[1], 'click');
+    //google.maps.event.trigger(map.markers[1], 'click');
 
     console.log('I love you Da Mao !! >/////<');
 
@@ -176,14 +176,19 @@ $(document).ready(function() {
     //Ref: http://imagesloaded.desandro.com/
 
     var $container = $('#photos-wrapper');
-    
+    //var $container = $('#photo-wrapper').packery({
+		//columnWidth: 80,
+		//rowHeight: 80
+    //});
     // init
     $container.imagesLoaded(function () {
         $container.packery({
             itemSelector: '.item',
-            percentPosition: true
+            percentPosition: true,
+	        //gutter:10
         });
     });
+
 
     /* ======= jQuery form validator ======= */ 
 	///* Ref: http://jqueryvalidation.org/documentation/ */
