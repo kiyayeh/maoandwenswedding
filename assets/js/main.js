@@ -149,7 +149,7 @@ $(document).ready(function() {
             limit: 28,
             get: 'tagged',
             tagName: 'maoandwenswedding', /* Remember to use a unique hastag for the wedding */
-            clientId: "786ec22af9db4b8a89c08b54cc3c88fd",
+            clientId: '467ede5a6b9b48ae8e03f4e2582aeeb3',
             resolution: 'thumbnail',
             template: '<a class="instagram-item item" href="{{link}}" target="_blank"><img class="img-responsive" src="{{image}}" /></a>',
             sortBy: 'most-liked',
